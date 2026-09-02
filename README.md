@@ -1,5 +1,33 @@
 # Woodpecker XVR 行為分析 Log 匯出工具
 
+## 環境設定
+
+執行環境需求：
+
+- Windows 10／11。
+- Windows PowerShell 5.1 或 PowerShell 7 以上。
+- Node.js 20 以上；可用 `node --version` 確認版本。
+- 可連線至 Woodpecker XVR Server，並具備可使用 Public API 的 Bearer Token。
+- Excel 匯出依賴 `@oai/artifact-tool`。若從 Codex Desktop 執行，`run-export.ps1` 會自動使用 Codex 內建的 Node.js 與套件，並在專案內建立被 Git 忽略的 `node_modules` 連結。
+
+第一次執行前，請在專案目錄開啟 PowerShell，建立本機設定檔：
+
+```powershell
+Copy-Item .\config.example.json .\config.json
+```
+
+接著編輯 `config.json`，至少設定 `baseUrl`、`defaultMachine` 與 `timezoneOffset`。API Token 建議透過目前 PowerShell 視窗的環境變數提供：
+
+```powershell
+$env:WOODPECKER_TOKEN = "pat#你的Token"
+```
+
+確認環境與啟動腳本正常：
+
+```powershell
+.\run-export.ps1 --help
+```
+
 此工具依據《Woodpecker-XVR 產品使用說明書 v5.5.10 v3》第 6.4 節 Public API 實作，會：
 
 - 使用 `POST /config/v1/public/detection/search` 查詢行為分析資料。
