@@ -1,0 +1,9 @@
+{
+  "baseUrl": "https://woodpecker.example.com",
+  "token": "",
+  "timezoneOffset": "+08:00",
+  "defaultMachine": "Workstation4",
+  "pageSize": 1000,
+  "rejectUnauthorized": true,
+  "outputDir": "Result"
+}

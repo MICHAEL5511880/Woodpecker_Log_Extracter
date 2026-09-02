@@ -1,0 +1,14 @@
+{
+  "name": "woodpecker-behavior-exporter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "export": "node src/woodpecker-export.mjs",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
+
